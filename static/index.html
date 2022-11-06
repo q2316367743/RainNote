@@ -7,43 +7,71 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>rain note</title>
+    <!-- 基础资源 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $BASE_URL_CDN;?>images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $BASE_URL_CDN;?>images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $BASE_URL_CDN;?>images/favicon-16x16.png">
+    <link rel="mask-icon" href="<?php echo $BASE_URL_CDN;?>images/safari-pinned-tab.svg" color="#d89000">
+    <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL_CDN;?>js/croppie/croppie.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL_CDN;?>styles/grapheditor.css">
+    <link rel="shortcut icon" href="<?php echo $BASE_URL_CDN;?>favicon.ico">
 
     <!-- 引入vditor -->
     <!-- ⚠️生产环境请指定版本号，如 https://cdn.jsdelivr.net/npm/vditor@x.x.x/dist... -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor@3.8.18/dist/index.css" />
     <script src="https://cdn.jsdelivr.net/npm/vditor@3.8.18/dist/index.min.js"></script>
 
+    <!-- 引入 layui.css -->
+    <link href="//unpkg.com/layui@2.7.6/dist/css/layui.css" rel="stylesheet">
+    <!-- 引入 layui.js -->
+    <script src="//unpkg.com/layui@2.7.6/dist/layui.js"></script>
+
     <!-- 引入vue -->
     <!-- 生产环境版本，优化了尺寸和速度 -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
+    <!-- 引入jquery -->
+    <script src="https://static.esion.xyz/cdn/jquery@3.6.0/jquery-3.6.0.min.js"></script>
+
     <link rel="stylesheet" href="/plugins/RainNote/static/css/index.css" />
+
+    <!-- 引入可道云SDK -->
+    <script>var kodSdkConfig = { api: '<?php echo APP_HOST;?>' };</script>
+    <?php $this->link('app/dist/sdk.js','static');?>
 </head>
 
 <body>
     <div id="app" theme="light">
-        <!-- 侧边栏，可隐藏 -->
-        <aside id="side"></aside>
+        <!-- 顶部标题栏 -->
+        <header id="header">
+            <!-- 菜单按钮 -->
+            <ul class="menu">
+                <li>新建</li>
+                <li @click="openFolder">打开</li>
+                <li>帮助</li>
+            </ul>
+            <!-- 标题栏 -->
+            <div id="title">{{title}}</div>
+            <!-- 占位 -->
+            <div></div>
+        </header>
         <!-- 主界面 -->
         <main id="main">
-            <!-- 顶部标题栏 -->
-            <header id="header">
-                <!-- 菜单按钮 -->
-                <div class="menu">
-                    菜单
-                </div>
-                <!-- 标题栏 -->
-                <div id="title">{{title}}</div>
-                <!-- 占位 -->
-                <div></div>
-            </header>
+            <!-- 侧边栏 -->
+            <aside id="side">
+                <div class="side-folder" v-for="folder in folderList">{{folder.name}}</div>
+                <div class="side-file"></div>
+            </aside>
             <!-- 编辑器 -->
-            <main id="container"></main>
-            <!-- 底部信息栏 -->
-            <footer id="footer"></footer>
+            <main id="container">
+                <div id="editor"></div>
+            </main>
         </main>
+        <!-- 底部信息栏 -->
+        <footer id="footer"></footer>
     </div>
 </body>
 
 <script src="/plugins/RainNote/static/js/index.js"></script>
+
 </html>
