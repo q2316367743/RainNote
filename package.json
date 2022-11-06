@@ -1,0 +1,35 @@
+{
+    "id": "RainNote",
+    "name": "{{LNG['note.meta.name']}}",
+    "title": "{{LNG['note.meta.title']}}",
+    "menu": "{{LNG['note.meta.menu']}}",
+    "version": "1.0",
+    "source": {
+        "icon": "{{pluginHost}}static/image/icon.png",
+        "screenshoot": [
+            "{{pluginHost}}static/image/desc1.png",
+            "{{pluginHost}}static/image/desc2.png",
+            "{{pluginHost}}static/image/desc3.png"
+        ]
+    },
+    "category": "tools,file",
+    "description": "{{LNG['note.meta.desc']}}",
+    "keywords": "markdown,笔记",
+    "auther": {
+        "copyright": "esion",
+        "homePage": "https://blog.esion.xyz"
+    },
+    "configItem": {
+        "pluginAuth": {
+            "type": "userSelect",
+            "value": {
+                "all": 1
+            },
+            "display": "{{LNG['admin.plugin.auth']}}",
+            "desc": "{{LNG['admin.plugin.authDesc']}}",
+            "require": 1
+        }
+    }
+}
+
+

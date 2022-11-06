@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rain note</title>
+
+    <!-- 引入vditor -->
+    <!-- ⚠️生产环境请指定版本号，如 https://cdn.jsdelivr.net/npm/vditor@x.x.x/dist... -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor@3.8.18/dist/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vditor@3.8.18/dist/index.min.js"></script>
+
+    <!-- 引入vue -->
+    <!-- 生产环境版本，优化了尺寸和速度 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+    <link rel="stylesheet" href="/plugins/RainNote/static/css/index.css" />
+</head>
+
+<body>
+    <div id="app" theme="light">
+        <!-- 侧边栏，可隐藏 -->
+        <aside id="side"></aside>
+        <!-- 主界面 -->
+        <main id="main">
+            <!-- 顶部标题栏 -->
+            <header id="header">
+                <!-- 菜单按钮 -->
+                <div class="menu">
+                    菜单
+                </div>
+                <!-- 标题栏 -->
+                <div id="title">{{title}}</div>
+                <!-- 占位 -->
+                <div></div>
+            </header>
+            <!-- 编辑器 -->
+            <main id="container"></main>
+            <!-- 底部信息栏 -->
+            <footer id="footer"></footer>
+        </main>
+    </div>
+</body>
+
+<script src="/plugins/RainNote/static/js/index.js"></script>
+</html>
