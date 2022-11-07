@@ -2,12 +2,14 @@
     --color: #000000;
     --border-color: #222222;
     --hover-color: #f6f8fa;
+    --background-color: #f2f2f2;
 }
 
 #app[theme=dark-mode] {
     --color: #ffffff;
     --border-color: #dddddd;
     --hover-color: #08060f;
+    --background-color: #1c0900;
 }
 
 
@@ -43,12 +45,14 @@
 
 .menu {
     list-style: none;
-    float: left;
+    margin: 0;
+    padding: 0;
 }
 
 .menu li {
     float: left;
-    width: 50px;
+    min-width: 50px;
+    padding: 0 5px;
     cursor: pointer;
     text-align: center;
 }
@@ -87,4 +91,47 @@
 
 .vditor-reset {
     color: #b9b9b9 !important;
+}
+
+#side-tree {
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--color);
+}
+
+.el-tree-node:focus>.el-tree-node__content {
+    background-color: var(--hover-color) !important;
+}
+
+.el-tree-node__content:hover {
+    background-color: var(--hover-color) !important;
+}
+
+.el-input__inner {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.custom-tree-node {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    padding-right: 8px;
+}
+
+.context-menu {
+    width: 200px;
+    position: absolute;
+    background-color: var(--background-color);
+    color: var(--color);
+    padding: 3px;
+}
+
+.context-menu .context-menu-item:hover {
+    background-color: var(--hover-color);
+}
+
+.context-menu .context-menu-item {
+    padding: 3px 6px;
+    cursor: pointer;
 }
